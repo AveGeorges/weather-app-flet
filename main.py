@@ -30,7 +30,7 @@ def main(page: ft.Page):
   field_weather_temp = ft.Text('')
   field_weather_condition = ft.Text('')
   
-  weather_elements = ''
+  weather_elements = field_weather_condition, field_weather_temp
   
   user_city_input = ft.TextField(label='Введите город', width=300)
   change_theme_button = ft.IconButton(ft.icons.SUNNY, on_click=change_theme)
