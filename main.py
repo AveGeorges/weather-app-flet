@@ -1,5 +1,6 @@
 import flet as ft
 import requests
+import datetime
 
 
 def main(page: ft.Page):
@@ -26,18 +27,24 @@ def main(page: ft.Page):
     page.theme_mode = 'light' if page.theme_mode == 'dark' else 'dark'
     page.update()
     
+  def view_date_time():
+    date_time = datetime.datetime.now().strftime('%d %h %Y | %H:%M')
+    date_time_text.value = date_time
+    page.update()
   
   field_weather_temp = ft.Text('')
   field_weather_condition = ft.Text('')
   
   weather_elements = field_weather_temp, field_weather_condition
   
-  user_city_input = ft.TextField(label='Введите город', width=300)
   change_theme_button = ft.IconButton(ft.icons.SUNNY, on_click=change_theme)
+  user_city_input = ft.TextField(label='Введите город', width=300)
+  date_time_text = ft.Text('')
   weather_start_text = ft.Text('Погодные условия')
-  confirm_user_city_button = ft.ElevatedButton(text='К прогнозу', on_click=get_info)
+  confirm_user_city_button = ft.ElevatedButton(text='К погоде', on_click=get_info)
   
-  user_elements = change_theme_button, weather_start_text, user_city_input, confirm_user_city_button
+  user_elements = change_theme_button, weather_start_text, date_time_text, user_city_input, confirm_user_city_button
+  view_date_time()
 
   for elem in user_elements:    
     page.add(      
@@ -47,6 +54,7 @@ def main(page: ft.Page):
       page.add(      
         ft.Row([elem], alignment=ft.MainAxisAlignment.CENTER)
       )
+  page.update()
 
 ft.app(target=main)
 
