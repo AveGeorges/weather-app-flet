@@ -74,35 +74,3 @@ def main(page: ft.Page):
   
 
 ft.app(target=main, view=ft.AppView.WEB_BROWSER)
-
-
-
-# label = ft.Text('Info', color='yellow')
-#     user_input = ft.TextField(value='0', width=150, text_align=ft.TextAlign.CENTER)
-
-#     def get_info(event):
-#         label.value = user_input.value
-#         page.update()
-
-
-#     page.add(
-#         ft.Row(
-#             [ 
-#                 ft.IconButton(ft.icons.HOME, on_click=get_info),
-#                 ft.IconButton(ft.icons.BACK_HAND),
-#                 ft.ElevatedButton(text='PUSH', on_click=get_info),
-#                 ft.OutlinedButton(text='PUSH', on_click=get_info),
-#                 ft.Checkbox(label='Agree?', value=True, on_change=get_info)
-
-
-#             ],
-#             alignment=ft.MainAxisAlignment.CENTER
-#         ),
-#         ft.Row(
-#             [
-#                 label,
-#                 user_input
-#             ],
-#             alignment=ft.MainAxisAlignment.CENTER
-#         )
-#     )
